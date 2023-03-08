@@ -1,0 +1,112 @@
+   <!-- Report -->
+  <!-- Modal -->
+  <div class="modal fade" id="Testimonial" role="dialog" style="margin-top: 10%;">
+    <div class="modal-dialog" style="width: 500px;">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#FFFC00;">
+          <img src="../../../assets/img/logosnap2-removebg-preview.png" style="margin-left: 50%; transform: translate(-50%,0);" width="50" height="40">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="divbody">
+                
+                         
+                       <label for="text" style="display: block ; margin-left:40px ;">Testimonial</label>
+                        <textarea type="text" id="text" [(ngModel)]="test.message"  rows="6" cols="50" name="text" title="text" placeholder="text" style="display:inline-block; margin-left:50%; transform:translate(-50%,0) ;" ></textarea>
+                   
+                   
+           <div class="modal-footer" >
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="createtestimonial()" >Send</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal"  >Close</button>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- Report -->
+
+
+
+<nav class="navbar navbar-expand-md navbar-dark mb-4" style="background-image: linear-gradient(#FFFC00, #FFFC00,#FFFC00, rgba(3, 1, 1, 0));">
+    <a  class="navbar-brand"><img src="../../../assets/img1/logosnap2-removebg-preview.png" alt="logo" class="img-fluid" width="70px" height="90px"></a>
+
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#responsive"><span class="navbar-toggler-icon"></span></button>
+
+
+    <div class="collapse navbar-collapse" id="responsive">
+        <ul class="navbar-nav mr-auto text-capitalize" >
+            <li class="nav-item"><a routerLink="/user/" class="nav-link active" style="color:black;">home</a></li>
+            <li class="nav-item"><a routerLink="/user/profile"  class="nav-link" style="color:black;">profile</a></li>
+            <li class="nav-item">
+              <a href="#modalview" class="nav-link" data-toggle="modal" style="color:black;"> 
+              
+                messages <span class="badge badge-danger" style="position:relative; bottom:10px;">{{this.user.messagenotseen.length}}</span></a></li>
+            <li class="nav-item"><a href="#Testimonial" class="nav-link" data-toggle="modal" style="color:black;">Testimonial</a></li>
+        </ul>
+
+
+
+        <form action="" class="form-inline ml-auto d-none d-md-block">
+            <div class="form-group">
+                
+                <input type="text" class="form-control" autocomplete="off" placeholder="Search" list="list-timezone" id="input-datalist"  name="input-datalist">
+              
+                    <datalist id="list-timezone">  
+                        <div *ngFor="let obj of user.allloginusers">  
+                            <div >     
+                                <option *ngIf="obj.userid != token.userid" id="{{obj.id}}" value="{{obj.username}}"> 
+                                    {{obj.username}}
+                                </option>   
+                            </div> 
+                         </div>                        
+                            
+                    </datalist>
+
+                    <button class="btn btn-outline-primary" style="margin-left: -75px; width:70px;height:30px;" (click)="getuserbyid()"> <span style="position: relative; bottom:4px; display:inline-block">serach</span>
+                    </button>
+
+                </div>
+   
+        </form>
+
+
+
+        <ul class="d-flex align-items-center">
+            <div class="dropdown" style="margin-right:50px;">
+                <button type="button" class="btn" style="border: none;" data-bs-toggle="dropdown">
+                    <span class="badge badge-danger">{{this.user.notefication.length}}</span>
+                    <i class="far fa-bell ml-3 d-none d-md-block"></i>
+                  </button>
+                <ul class="dropdown-menu" *ngFor="let obj of user.notefication">
+                  <li><a class="dropdown-item">
+                    <img src="../../../assets/img/{{obj.imagepath}}" alt="" style="width:40px; height: 40px;" class="rounded-circle">
+                     {{obj.name}}
+                
+                    <button class="btn btn-outline-danger bi bi-x-square" style="margin-left:40px; width: 60px;" (click)="reject(obj.id , token.userid)"></button>
+                    <button class="btn btn-outline-info bi bi-check-square" style="margin-left:40px; width: 60px; margin-left: 5px;" (click)="Accept(obj.id , token.userid)"></button>
+                  </a></li>
+                      
+                </ul>
+              </div>
+          </ul>
+          
+
+        <ul class="d-flex align-items-center">
+            <div class="dropdown" style="margin-right:100px;">
+                <!-- <div  calss="dropdown-toggle" data-bs-toggle="dropdown">show</div> -->
+                <button type="button" class="btn  dropdown-toggle" style="border: none;" data-bs-toggle="dropdown">
+                    <img src="../../../assets/img/{{this.user.profile[0].imagepath}}" alt="" style="width:40px; height: 40px;" class="rounded-circle">
+                    {{token.unique_name}} 
+                  </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" routerLink="/user/profile">Edit Profile</a></li>
+                  <li (click)="logout()"><a class="dropdown-item" href="#">Logout</a></li>       
+                </ul>
+              </div>
+          </ul>
+    </div>
+</nav>

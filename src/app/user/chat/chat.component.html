@@ -1,0 +1,179 @@
+<div class="wrapper">
+       
+    <section class="sectiontitle">
+    <img src="../../../assets/img/{{user.Userchat[0].imagepath}}" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+      <h5 class="modal-title" id="exampleModalLabel">{{user.Userchat[0].firstname}} {{user.Userchat[0].lastname}}</h5>
+      <button type="button" style="margin-right: 50px; margin-top: 20px; font-size: 30px;" class="close text-primary" routerLink="/user/"  >&times;</button> 
+    </section>
+
+    
+        <div id="sectionmid" class="sectionmid">
+        <div class="box" *ngFor="let obj of user.chattouser" >
+
+            <div class="item" *ngIf="obj.senderid == this.idto">
+               
+                    <img src="../../../assets/img/{{user.Userchat[0].imagepath}}" alt="img" width="40px" height="40px" class="rounded-circle mr-3" style="margin-right: -10px;">
+               
+          
+             
+                <div class="msg " style="margin-left: -8px;">
+                   
+                    <div  *ngIf="obj.path != null ">
+                        {{changeext(obj.path)}}
+                    <img *ngIf="this.ext == 'jpg' || this.ext == 'png' || this.ext == 'eps' "  src="../../../assets/img/{{obj.path}}" width="150" height="100">
+
+                    <video *ngIf="this.ext == 'mp4' || this.ext == 'webm' || this.ext == 'ogg'"  autoplay controls width="250">
+
+                        <source src="../../../assets/img/{{obj.path}}"
+                                type="video/webm">
+                    
+                        <source src="../../../assets/img/{{obj.path}}"
+                                type="video/mp4">
+
+                                <source src="../../../assets/img/{{obj.path}}"
+                                type="video/ogg">
+                    
+                        Sorry, your browser doesn't support embedded videos.
+                    </video>
+
+                <audio *ngIf="this.ext == 'mpeg' || this.ext == 'wav' || this.ext == 'ogg'"   controls autoplay muted>
+                        <source src="../../../assets/img/{{obj.path}}" type="audio/ogg">
+                        <source src="../../../assets/img/{{obj.path}}" type="audio/mpeg">
+                        <source src="../../../assets/img/{{obj.path}}" type="audio/wav">
+                          Your browser does not support the audio element.
+                 </audio>
+                 <p id="p" *ngIf="obj.text != null">{{obj.text}}</p>
+                 </div>
+                 <div  *ngIf="obj.path == null && obj.text!=null">
+                    <p id="p" *ngIf="comparedate(obj.messagedate)==true">
+                        
+                        
+                        
+                        <span style="color: black; font-size:12px;">Today  {{obj.messagedate|date:'shortTime'}}</span>
+                        <br>
+                        
+                        {{obj.text}}
+                    </p>
+                    <p id="p" *ngIf="comparedate(obj.messagedate)==false">
+                        
+                        
+                        
+                        <span style="color: black; font-size:12px;"> {{obj.messagedate|date:'MMM d, h:mm a'}}</span>
+                        <br>
+                      
+                        {{obj.text}}
+                    </p>
+                 </div>
+                    
+                </div>
+                <div class="filter" style="margin-left: 5px;">
+                    <a class="icon bg-info" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                      <li class="dropdown-header text-start">
+                      </li>
+                      <li  ><a *ngIf="obj.issave == 1" class="dropdown-item" (click)="messagesave(obj.id , obj.issave)">UnSave</a></li>
+                      <li  ><a *ngIf="obj.issave == 0" class="dropdown-item" (click)="messagesave(obj.id , obj.issave)">Save</a></li>
+               
+                    </ul>
+                  </div>
+            </div>
+            <br clear="both">
+
+            <div class="item right" *ngIf="obj.senderid == this.token.userid" >
+               
+                <div class="filter">
+                    <a class="icon bg-info" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                      <li class="dropdown-header text-start">
+                      </li>
+                      <li  ><a *ngIf="obj.issave == 1" class="dropdown-item" (click)="messagesave(obj.id , obj.issave)">UnSave</a></li>
+                      <li  ><a *ngIf="obj.issave == 0" class="dropdown-item" (click)="messagesave(obj.id , obj.issave)">Save</a></li>
+                      <li><a class="dropdown-item" (click)="deletemessage(obj.id)">Delete</a></li>
+                    </ul>
+                  </div>
+
+                <div class="msg">
+                    
+
+                    <div  *ngIf="obj.path != null ">
+                        {{changeext(obj.path)}}
+                        <p id="p" *ngIf="comparedate(obj.messagedate)==true">
+                        
+                        
+                        
+                            <span style="color: gray; font-size:12px;">Today  {{obj.messagedate|date:'shortTime'}}</span>
+                            <br>
+                           
+                        </p>
+                        <p id="p" *ngIf="comparedate(obj.messagedate)==false">
+                            
+                            <span style="color: gray; font-size:12px;"> {{obj.messagedate|date:'MMM d, h:mm a'}}</span>
+                            <br>
+                          
+                        </p>
+                    <img *ngIf="this.ext == 'jpg' || this.ext == 'png' || this.ext == 'eps' "  src="../../../assets/img/{{obj.path}}" width="150" height="100">
+
+                    <video *ngIf="this.ext == 'mp4' || this.ext == 'webm' || this.ext == 'ogg'"  autoplay controls width="500">
+
+                        <source src="../../../assets/img/{{obj.path}}"
+                                type="video/webm">
+                    
+                        <source src="../../../assets/img/{{obj.path}}"
+                                type="video/mp4">
+
+                                <source src="../../../assets/img/{{obj.path}}"
+                                type="video/ogg">
+                    
+                        Sorry, your browser doesn't support embedded videos.
+                    </video>
+
+                <audio *ngIf="this.ext == 'mpeg' || this.ext == 'wav' || this.ext == 'ogg'"   controls autoplay muted>
+                        <source src="../../../assets/img/{{obj.path}}" type="audio/ogg">
+                        <source src="../../../assets/img/{{obj.path}}" type="audio/mpeg">
+                        <source src="../../../assets/img/{{obj.path}}" type="audio/wav">
+                          Your browser does not support the audio element.
+                 </audio>
+                 <p id="p" *ngIf="obj.text != null">{{obj.text}}</p>
+                 </div>
+                 <div  *ngIf="obj.path == null && obj.text!=null">
+                    <p id="p" *ngIf="comparedate(obj.messagedate)==true">
+                        
+                        
+                        
+                        <span style="color: gray; font-size:12px;">Today  {{obj.messagedate|date:'shortTime'}}</span>
+                        <br>
+                       
+                        {{obj.text}}
+                    </p>
+                    <p id="p" *ngIf="comparedate(obj.messagedate)==false">
+                        
+                        <span style="color: gray; font-size:12px;"> {{obj.messagedate|date:'MMM d, h:mm a'}}</span>
+                        <br>
+                      
+                        {{obj.text}}
+                    </p>
+                 </div>
+             </div>
+        </div>
+     </div>
+    </div>  
+
+
+        
+        <div class="typing-area ">
+            <div class="image-upload">
+                <label for="file-input">
+                    <i class="bi bi-file-earmark-arrow-up-fill " style="display: inline-block; color: #007bff; font-size: 18px; margin-top: 10px;" ></i>
+                </label>
+                <input id="file-input" type="file" 
+                accept="image/jpg,image/png,image/eps,video/mp4,video/webm,video/ogg,audio/wav,audio/mpeg,audio/ogg" 
+                #file (change)="uploadImage(file.files)"/>
+                <div></div>
+            </div>
+            
+            <div class="input-field">                    
+                <input type="text" [(ngModel)] ="this.text" placeholder="Type your message" required>                                       
+                <button  (click)="Sendmessage(this.token.userid , this.idto)" >Send</button>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,64 @@
+<app-sidebaradmin></app-sidebaradmin>
+<main id="main" class="main">
+  <div class="pagetitle" style="margin-top: 50px; " >
+    <h1>Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Report</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+<section class="section dashboard">
+
+    <table class="table table-bordered" style="margin-top: 50px;">
+        <thead style="background-color: #FFFC00;">
+          <tr>
+            <th class="col-md-2 col-xs-2">From User</th>
+            <th class="col-md-2 col-xs-2">To User</th>
+            <th class="col-md-6 col-xs-6">Message</th>
+           
+            <th></th>
+          </tr>
+        </thead>
+       
+        <tbody>
+        
+            
+         
+            <tr *ngFor="let obj of admin.reportinfo">
+               
+        <td >
+         
+            <div *ngFor="let obj1 of admin.allusers">
+            <div *ngIf="obj.reportfrom == obj1.userid">
+              {{obj1.username}} 
+            </div>
+        </div>
+            </td>
+   
+            <td   >
+                <div *ngFor="let obj1 of admin.allusers">
+                    <div *ngIf="obj.reportto == obj1.userid">
+                      {{obj1.username}} 
+                    </div>
+                </div>
+               
+  </td>
+        <td>{{obj.message}}</td>
+   
+       
+ 
+    
+                
+            <td>      <button type="button" class="btn btn-primary btn-md" style="width: 100px; display: block; margin-bottom: 10px;" (click)="updatereportstatus(obj.id,1)">Accept</button>
+                      <button type="button" class="btn btn-danger btn-md" style="width: 100px;" (click)="updatereportstatus(obj.id,0)">Reject</button>
+            </td>
+        
+          </tr>
+      
+        </tbody>
+   
+      </table> 
+   
+</section>
+</main>

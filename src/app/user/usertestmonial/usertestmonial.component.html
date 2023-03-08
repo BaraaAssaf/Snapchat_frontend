@@ -1,0 +1,52 @@
+
+<app-navbaruser></app-navbaruser>
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Testimonial</h1>
+        <nav>
+
+            <h2 class="breadcrumb-item">We hope that our website has won your admiration. Share your unique opinion about our website</h2>
+
+
+        </nav>
+    </div>
+
+    <section class="testimonial_area">
+
+
+        <section class="section profile">
+            <div class="row">
+                <div class="col-xl-5">
+
+                    <div class="card">
+                        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                            <img src="../../../assets/img/{{token.Image}}" alt="" style="width:150px; height:  130px;" class="rounded-circle">
+                            <br>
+                            <div class="col-md-8 col-lg-9">
+                                <textarea id="w3review" name="w3review" class="form-control" [(ngModel)]="test.message" rows="4" cols="50" placeholder="We look forward to hearing your opinion"></textarea>
+                                <input name="firstName" type="submit" (click)="createtestimonial()" class="form-control" id=" firstName ">
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <ul class="indicators ">
+                <li data-target=".testimonial_slide" data-slide-to="0" class="testimonial_1"><img src="https://w7.pngwing.com/pngs/993/789/png-transparent-snapchat-logo-screenshot-snapchat-snap-inc-logo-spectacles-snapchat-text-smiley-emoticon-thumbnail.png" width="100" height="100" alt=""></li>
+                <li data-target=".testimonial_slide" data-slide-to="1" class="testimonial_2"><img src="https://iconape.com/wp-content/png_logo_vector/cib-snapchat.png" alt="" width="100" height="100"></li>
+                <li data-target=".testimonial_slide" data-slide-to="3" class="testimonial_4"><img src="https://wallpaperaccess.com/full/3963615.jpg" alt="" width="120" height="110"></li>
+
+                <li class="round_shap"></li>
+            </ul>
+
+
+        </section>
+    </section>
+
+</main>
+<app-footer></app-footer>

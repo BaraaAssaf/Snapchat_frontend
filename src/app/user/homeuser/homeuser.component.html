@@ -1,0 +1,598 @@
+<app-navbaruser></app-navbaruser>
+
+<div class="modal fade1" id="modalview">
+    <div class="modal-dialog modal-dialog-scrollable1 modal-dialog-centered">
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+                <div class="modal-title h4">Messages</div>
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+       
+            <div class="modal-body" >
+
+
+                <ul class="list-unstyled">
+
+                 <div *ngFor="let obj of user.chat" >
+                 <a   (click)="chat(obj.user)" class="text-decoration-none"  href="#exampleModal" data-toggle="modal" data-dismiss="modal" >
+                    <li class="media hover-media" >
+                       <span *ngFor="let users of user.alluser">
+                       <span  *ngIf="users.id == obj.user">
+
+                            <img src="../../../assets/img/{{users.imagepath}}"  alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+                        </span>
+                        </span>
+                            
+                          <h6 class="media-header" style="display: inline;">
+                                <span class="media-body text-dark" *ngFor="let obj1 of user.allloginusers" style="display: inline;">
+                                            <span *ngIf="obj.user == obj1.userid" style="font-size: 17px; color:black; display:inline-block ; margin-top:10px" > 
+                                        {{obj1.username}}  
+
+                                 </span>
+
+                                </span>
+                         </h6>
+                                    <!-- <p class="media-text" style="display: inline;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> -->          
+                                    <div *ngFor="let notefi of user.messagenotseen">
+                                      <span *ngIf="notefi.user == obj.user "  style="position:absolute; right:10px ;"> <i class="bi bi-dot text-primary" style="font-size:50px ;"></i></span>
+                                     </div>
+                    </li>
+                  
+                </a>
+       
+                
+           
+
+                 <hr class="my-3">
+            </div>
+       
+
+
+                </ul>
+
+
+
+                
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+<!-------------------------------MOdal Ends---------------------------->
+
+
+
+<!-------------------------------------------Start Grids layout for lg-xl-3 columns and (xs-lg 1 columns)--------------------------------->
+
+
+<div class="container">
+    <div class="row">
+
+
+        <!--------------------------left columns  start-->
+
+        <div class="col-12 col-lg-3">
+
+            <div class="left-column">
+
+
+      <div class="card card-left1 mb-4" >
+                    <img src="../../../assets/img/logosnap2-removebg-preview.png" alt="" style="background-color:#FFFC00;" class="card-img-top img-fluid">
+             <div class="card-body text-center ">
+                        <img src="../../../assets/img/{{token.Image}}" alt="img" width="120px" height="120px" class="rounded-circle mt-n5">
+                        <h3 class="card-title text-primary"> <strong>{{this.user.User[0].firstname}} {{this.user.User[0].lastname}}</strong> </h3>
+                        <p class="card-text text-justify mb-2"></p>
+             
+              <a class="btn btn-primary text-primary" data-toggle="modal" data-target="#Friends" style="width:100px; background-color: transparent;" > <strong>Friends</strong> <br> <strong>{{this.user.Friend1.length}}</strong></a>
+                    </div>
+                </div>
+
+
+                <div class="card shadow-sm card-left2 mb-4">
+
+                    <div class="card shadow-sm card-left3 mb-4">
+
+                        <div class="card-body" >
+                            <h5 class="card-title"></h5>
+    
+                            <div class="row">
+                                
+                               
+                                <div class="col-12 p-1">
+
+                                    <div class="image-upload">
+                                        <label for="file-input">
+                                            <a class="btn btn-outline-primary btn-sm text-primary" 
+                                            style=" width: 100px;
+                                             position: absolute; left: 50%; top: -25px;
+                                             transform: translate(-50%,0); " > 
+                                            Create Story</a>
+                                           <hr>
+                                     
+                                        </label>
+                                        <input hidden id="file-input" type="file" 
+                                        accept="image/jpg,image/png,image/eps,video/mp4,video/webm,video/ogg" 
+                                        #file (change)="uploadImageStory(file.files)"/>
+                                        <div></div>
+                                    </div>
+                                    <a href="#"  style="margin-top: 5px; width: 100px; top: 5px;
+                                    position: absolute; left: 50%;
+                                    transform: translate(-50%,0);"
+                                    class="btn btn-outline-primary btn-sm text-primary"  data-toggle="modal" data-target="#story" 
+                                 >My Story</a>
+
+                                    <!--  Create Story</a> -->
+                                    </div>
+                            </div>  
+                        </div>
+                        </div>
+    
+
+
+                    <div class="card-body">
+
+                            <h5 class="mb-3 card-title">About <small><a href="#" class="ml-1">Edit</a></small></h5>
+
+                            <p class="card-text"> <i class="fas fa-calendar-week mr-2"></i> Went to <a href="#" class="text-decoration-none">oh canada</a></p>
+
+                            <p class="card-text"> <i class="fas fa-user-friends mr-2"></i> Become a friend with <a href="#" class="text-decoration-none">obama</a></p>
+                            <p class="card-text"> <i class="far fa-building mr-2"></i> Work at <a href="#" class="text-decoration-none">Github</a></p>
+                            <p class="card-text"> <i class="fas fa-home mr-2"></i> Live in <a href="#" class="text-decoration-none">San francisco</a></p>
+                            <p class="card-text"> <i class="fas fa-map-marker mr-2"></i> From <a href="#" class="text-decoration-none">Seattle, WA</a></p>
+
+                    </div>
+                 
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+   
+
+
+
+
+
+
+<!--------------------------Ends Left columns-->
+
+
+
+
+
+<!---------------------------------------Middle columns  start---------------->
+
+
+
+        
+        <div class="col-12 col-lg-6" >
+
+
+            <div class="middle-column">
+
+             
+                <div class="card" >
+                 
+                    <div class="card-header bg-transparent">
+                        <form class="form-inline">
+
+                            <div class="input-group w-100">
+                             <input type="text" name="message" id="message" placeholder="Message" class="form-control form-control-md">
+
+                             <div class="input-group-append">
+                                    <div class="input-group-text">
+                                            <i class="fas fa-camera"></i>
+                                        </div>
+
+
+                             </div>
+
+                            </div>
+
+
+
+                    
+                            
+                           
+                        </form>
+                    </div>   
+                    
+                    
+
+<hr>
+<div class="card-body">
+  
+  <google-map height="400px"
+            width="auto"
+            [center]="center"
+            [zoom]="zoom" >
+          <div *ngFor="let item of user.allloginusers">
+            
+          <p *ngFor="let loc of user.location;index as i">
+          
+            <map-marker *ngIf="item.userid == loc.userid" [position]="{lat:loc.lat,lng:loc.lng}" [label]="item.username" 
+            [icon]="icon[0]" ></map-marker>
+         
+          </p>
+        
+         </div>
+</google-map>
+
+</div>
+<div class="card-body" *ngFor="let obj of user.Story">
+
+    <div class="media" id="{{obj.id}}media" *ngIf="token.userid != obj.userId">
+        <div class="media-body"  style=" width:100%; height:350px; 
+         position:relative ; z-index: 0;" (click)="CreateViewer(obj.id , token.userid)">
+
+   <div id="progressContainer" style="position:absolute; left: 50%;transform: translate(-50%,0); z-index: 2 ;">
+    <div id="{{obj.id}}progress" class="progress"></div>
+</div>
+
+    {{changeext(obj.path)}}
+      <img *ngIf="this.ext == 'jpg' || this.ext == 'jpeg' || this.ext == 'png' || this.ext == 'eps' || this.ext == 'com' " 
+       src="../../../assets/img/{{obj.path}}" alt="img"
+        style="position:absolute; left: 0; top:0; width: 100%; height: 100%; z-index: 1;">
+
+    <video *ngIf="this.ext == 'mp4' || this.ext == 'webm' || this.ext == 'ogg'" 
+       autoplay  id="video{{obj.id}}"
+     style="position:absolute; left: 0; top:0; width: 100%; height: 100%; z-index: 1;">
+
+       <source src="../../../assets/img/{{obj.path}}"
+               type="video/webm">
+
+         <source src="../../../assets/img/{{obj.path}}"
+                     type="video/mp4">
+          Sorry, your browser doesn't support embedded videos.
+    </video>
+
+     
+        
+         <div id="{{obj.id}}div" style="position:absolute;width:100%;height:100% ;left:0;top:0; background-color: rgba(0, 0, 0, .88);z-index: 1;">
+        <div *ngFor="let obj1 of user.alluser">
+            <img *ngIf="obj1.id == obj.userId" id="{{obj.id}}img"  src="../../../assets/img/{{obj1.imagepath}}" alt="img" width="100px" height="100px" 
+            class="rounded-circle mr-3" style="position:absolute; left: 50%; top: 50%; transform:translate(-50%,-50%);" (click)="changeshowstory(obj.id)"> 
+            <h3 id="{{obj.id}}h3" *ngIf="obj1.id == obj.userId" style="color:white; position:absolute; left: 50%; top: 70%; transform:translate(-50%,-70%)" (click)="changeshowstory(obj.id)"> {{obj1.firstname}} {{obj1.lastname}}</h3>
+        </div>
+    </div>
+   </div>   
+</div>
+
+</div>                       
+</div>
+</div>
+</div>
+
+<br> <br> <br><br> <br> <br>
+<!------------------------Middle column Ends---------------->
+
+
+
+
+
+
+
+
+<!---------------------------Statrs Right Columns----------------->
+
+
+            
+<div class="col-12 col-lg-3">
+
+
+<div class="right-column">
+
+    <div class="card shadow-sm mb-4" >
+        <div class="card-body">
+            <h1 class="card-title text-primary">Snapchat Services </h1>
+            <div class="row no-gutters d-none d-lg-flex" *ngFor="let obj of this.user.service">
+                <div class="col-4 p-1">
+                        <img src="../../../assets/img/{{obj.imagepath}}" alt="img" width="80px" height="80px" >
+           
+                </div>
+                <div class="col-8 p-1 text-left">
+                    <span style="margin-left:20px; margin-top: -5px; display: block; font-size: 16px;">{{obj.servicename}}</span>
+                    <span style="margin-left:20px; margin-top: 5px; display: block; font-size: 14px;">Price: {{obj.price}}</span>
+                    <a href="#" style="margin-left:20px; margin-top: 5px; width: 80px;" class="btn btn-outline-info btn-sm " data-toggle="modal" data-target="#sponsred" (click)="getpriceandIdforservice(obj.price,obj.id)">Buy</a>
+
+              </div>
+               
+           </div>
+           <hr class="text-primary bg-primary" style="height: 1px;">
+
+        </div>
+
+    </div>
+
+<h1 class="text-primary" >ADs</h1>
+    <div class="card shadow-sm mb-4" *ngFor="let obj of user.sponor">
+
+        <div class="card-body">
+
+                <h1 class="card-title">{{obj.title}}</h1>
+                <div class="row no-gutters d-none d-lg-flex">
+                    <div class="col-12 p-1">
+                         <!-- newedit -->
+                        {{changeext(obj.path)}}
+                        <img *ngIf="this.ext == 'jpg' || this.ext == 'jpeg' || this.ext == 'png' || this.ext == 'eps' || this.ext == 'com' "  src="../../../assets/img/{{obj.path}}" alt="img" width="210px" height="200px">
+                        <video *ngIf="this.ext == 'mp4' || this.ext == 'webm' || this.ext == 'ogg'"   controls width="210px" height="200px">
+
+                            <source src="../../../assets/img/{{obj.path}}"
+                                    type="video/webm">
+                        
+                            <source src="../../../assets/img/{{obj.path}}"
+                             type="video/mp4">
+                         Sorry, your browser doesn't support embedded videos.
+                        </video>
+                    </div>
+                    <hr>
+                    <p class="lead" style="font-size:18px;"> {{obj.text}}</p>
+                </div>
+            </div>
+    </div>
+
+</div>
+        </div>
+</div>
+
+</div>
+
+
+<div class="container">
+               
+    <!-- Modal -->
+    <div class="modal fade" id="Friends" role="dialog" style="margin-top: 10%;">
+      <div class="modal-dialog" style="width: 500px;">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header" style="background-color:#FFFC00;">
+            <img src="../../../assets/img/logosnap2-removebg-preview.png" style="margin-left: 50%; transform: translate(-50%,0);" width="50" height="40">
+            <button type="button" class="close" data-dismiss="modal">&times;</button> 
+          </div>
+          <div class="modal-body">            
+              <div class="divbody">
+                <ul class="list-unstyled" *ngFor="let obj of user.Friend1" >
+                    <a   class="text-decoration-none"   data-toggle="modal" data-target="#any">
+                       <li class="media hover-media" *ngIf=" obj.status == 1">
+                     
+  
+                               <img src="../../../assets/img/{{obj.imagepath}}" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+   
+                               <div class="media-body text-dark">
+                             <p class="media-text">{{obj.name}}</p>                  
+                     <button class="btn btn-outline-info  btn-sm" data-dismiss="modal" (click)="unfollow(this.token.userid , obj.id)">UnFollow </button>
+                 </div>
+              </li>
+
+              <li class="media hover-media" *ngIf=" obj.status == 0">
+            
+                       <img src="../../../assets/img/{{obj.imagepath}}" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+
+                       <div class="media-body text-dark">
+                     <p class="media-text">{{obj.name}}</p>                  
+             <button class="btn btn-outline-info  btn-sm" data-dismiss="modal" (click)="unfollow(this.token.userid , obj.id)">Requested </button>
+         </div>
+      </li>
+        </a>
+                <hr class="my-3">
+        </ul>        
+              </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+
+<!-- edit -->
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" style="margin-top: 10%;">
+    <div class="modal-dialog" style="width: 500px;">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#FFFC00;">
+          <img src="../../../assets/img/logosnap2-removebg-preview.png" style="margin-left: 50%; transform: translate(-50%,0);" width="50" height="40">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+             
+            <div class="divbody">  
+                       <label>Serial Number</label>
+                        <input    type="text" [(ngModel)]="SerialNumber"  name="SerialNumber" title="SerialNumber" placeholder="SerialNumber"/>	
+                
+                      <label>Expire Date</label>
+                        <input type="date"  [(ngModel)]="ExpireDate"   name="ExpireDate" title="ExpireDate" placeholder="ExpireDate" />	                   
+                      <label>Security Code</label>
+                        <input type="text"  [(ngModel)]="SecurityCode"  name="SecurityCode" title="SecurityCode" placeholder="SecurityCode"/>
+                        <input type="number" [(ngModel)]="price" value="price" style="display: none;">         
+           <div class="modal-footer" >
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="checkvisa()">Pay</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal"  >Close</button>
+        </div>
+    </div>
+    </div>
+
+</div>
+
+</div>
+</div>
+<!-- edit -->
+
+<!-- story -->
+  <!-- Modal -->
+  <div class="modal fade" id="story" role="dialog" style="margin-top: 0;">
+    <div class="modal-dialog" style="width: 500px;">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#FFFC00;">
+          <img src="../../../assets/img/logosnap2-removebg-preview.png" style="margin-left: 50%; transform: translate(-50%,0);" width="50" height="40">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+
+            <div class="divbody">
+                <div class="card-body" *ngFor="let obj of user.Story">
+                    <div class="media" id="{{obj.id}}media" *ngIf="token.userid == obj.userId">
+                        <div class="media-body"  style=" width:100%; height:350px; 
+                         position:relative; z-index: 0;">
+                   <div id="progressContainer" style="position:absolute; left: 50%;transform: translate(-50%,0); z-index: 2 ;">
+                    <div id="{{obj.id}}progress" class="progress"></div>
+                </div>
+                    {{changeext(obj.path)}}
+                      <img *ngIf="this.ext == 'jpg' || this.ext == 'jpeg' || this.ext == 'png' || this.ext == 'eps' || this.ext == 'com' " 
+                       src="../../../assets/img/{{obj.path}}" alt="img"
+                        style="position:absolute; left: 0; top:0; width: 100%; height: 100%; z-index: 1;">
+                
+                    <video *ngIf="this.ext == 'mp4' || this.ext == 'webm' || this.ext == 'ogg'" 
+                       autoplay  id="video{{obj.id}}"
+                     style="position:absolute; left: 0; top:0; width: 100%; height: 100%; z-index: 1;">
+                
+                       <source src="../../../assets/img/{{obj.path}}"
+                               type="video/webm">
+                
+                         <source src="../../../assets/img/{{obj.path}}"
+                                     type="video/mp4">
+                          Sorry, your browser doesn't support embedded videos.
+                    </video>
+                
+                     
+                        
+                         <div id="{{obj.id}}div" style="position:absolute;width:100%;height:100% ;left:0;top:0; background-color: rgba(0, 0, 0, .88);z-index: 1;">
+                        <div *ngFor="let obj1 of user.alluser">
+                            <img *ngIf="obj1.id == obj.userId" id="{{obj.id}}img"  src="../../../assets/img/{{obj1.imagepath}}" alt="img" width="100px" height="100px" 
+                            class="rounded-circle mr-3" style="position:absolute; left: 50%; top: 50%; transform:translate(-50%,-50%);" (click)="changeshowstory(obj.id)"> 
+                            <h3 id="{{obj.id}}h3" *ngIf="obj1.id == obj.userId" style="color:white; position:absolute; left: 50%; top: 70%; transform:translate(-50%,-70%)" (click)="changeshowstory(obj.id)"> {{obj1.firstname}} {{obj1.lastname}}</h3>
+                        </div>
+                    </div>
+                   </div> 
+            
+
+                   <button type="button" class="btn btn-outline-primary btn-sm text-primary bi bi-eye"  data-toggle="modal" data-target="#Viewer" style="width:70px;" (click)="Viewerstory(obj.id)" ></button>
+
+                </div>
+                </div>   
+
+           <div class="modal-footer" >
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- Story -->
+
+
+
+<!-- viewer -->
+  <!-- Modal -->
+  <div class="modal fade" id="Viewer" role="dialog" style="margin-top: 10%;">
+    <div class="modal-dialog" style="width: 500px;">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#FFFC00;">
+          <img src="../../../assets/img/logosnap2-removebg-preview.png" style="margin-left: 50%; transform: translate(-50%,0);" width="50" height="40">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="divbody">
+                <h4 style="margin-left:10px ;"> <i class="bi bi-eye"></i>
+                    {{this.user.countviewer}}</h4>
+         <ul class="list-unstyled" *ngFor="let obj of user.viewerbystory" >
+                    <a   class="text-decoration-none"   data-toggle="modal" data-target="#any">
+                     
+                       <li class="media hover-media" >
+                        <div *ngFor="let obj1 of user.alluser">
+                            <div class="media-body text-dark">
+
+                            <img *ngIf="obj1.id == obj.viewersId " src="../../../assets/img/{{obj1.imagepath}}" alt="img" width="60px" height="60px" class="rounded-circle mr-3" style="display:inline-block;">
+                          <p *ngIf="obj1.id == obj.viewersId" style="display:inline-block;" class="media-text">{{obj1.firstname}} {{obj1.lastname}}</p>  
+                        </div>
+                                            
+                 </div>
+              </li>
+              </a>
+                <hr class="my-3">
+      </ul>       
+        
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- viewer -->
+
+
+
+
+
+
+
+<!-- service -->
+  <!-- Modal -->
+  <div class="modal fade" id="sponsred" role="dialog" style="margin-top: 10%;">
+    <div class="modal-dialog" style="width: 500px;">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#FFFC00;">
+          <img src="../../../assets/img/logosnap2-removebg-preview.png" style="margin-left: 50%; transform: translate(-50%,0);" width="50" height="40">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="divbody">
+                       <label>title</label>
+                        <input    type="text" [(ngModel)]="title"  name="title" title="title" placeholder="title" />	
+                         
+                      <label>text</label>
+                        <input type="text"  [(ngModel)]="text"   name="text" title="text" placeholder="text" />	       
+                      <label >image</label>
+                         
+                      <input id="file-input" type="file" 
+                      accept="image/jpg,image/png,image/eps,video/mp4,video/webm,video/ogg" 
+                      #File (change)="uploadImage(File.files)" [(ngModel)]="path"/>      
+           <div class="modal-footer" >
+            <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#myModal">Next</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal"  >Close</button>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- service -->
+
+
+<!------------------------Light BOx OPtions------------->
+<script>
+    lightbox.option({
+      
+    })
+</script>
+<!------------------------Light BOx OPtions------------->
+
+
+
+
+

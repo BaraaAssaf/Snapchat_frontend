@@ -1,0 +1,48 @@
+<app-sidebaradmin></app-sidebaradmin>
+<main id="main" class="main">
+  <div class="pagetitle" style="margin-top: 50px; " >
+    <h1>Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Total Sales</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+<section class="section dashboard">
+
+    <table class="table table-bordered" style="margin-top: 50px;">
+        <thead style="background-color: #FFFC00;">
+            <tr>
+                <th class="col-md-3 col-xs-3">#</th>
+                <th class="col-md-3 col-xs-3">img</th>
+
+                <th class="col-md-3 col-xs-3">name</th>
+                <th class="col-md-3 col-xs-3">price</th>
+                <th class="col-md-3 col-xs-3">count</th>
+                <th class="col-md-3 col-xs-3">total Salse</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let obj1 of admin.numOfservice; let i = index">
+
+
+
+                <td>{{i+1}}</td>
+                <td>
+                    <img src="../../../assets/img/{{admin.service[i].imagepath}}" width="150 " height="100 "></td>
+                <td>{{obj1.servicename}}</td>
+                <td>{{admin.service[i].price}}</td>
+
+
+                <td>{{obj1.count}}</td>
+                <td>{{obj1.count * admin.service[i].price}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+
+     </section> 
+</main>

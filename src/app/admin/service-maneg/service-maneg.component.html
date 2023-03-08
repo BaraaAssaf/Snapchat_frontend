@@ -1,0 +1,122 @@
+<app-sidebaradmin></app-sidebaradmin>
+<main id="main" class="main">
+  <div class="pagetitle" style="margin-top: 50px; " >
+    <h1>Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Service</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+<section class="section dashboard">
+
+    <table class="table table-bordered" style="margin-top: 50px;">
+        <thead style="background-color: #FFFC00;">
+                    <tr>
+                        <th class="col-md-3 col-xs-3">name</th>
+                        <th class="col-md-3 col-xs-3">price</th>
+                        <th class="col-md-3 col-xs-3">img</th>
+                        <td class="col-md-3 col-xs-3">
+                            <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#create" (click)="create()">( + )</button> </td>
+                        <th></th>
+                        <th></th>
+                      
+                            <th></th>
+                    </tr>
+        </thead>
+              <tbody>
+                    <tr *ngFor="let obj of admin.service">
+                        <td>{{obj.servicename}}</td>
+                        <td>{{obj.price}}</td>
+                        <td><img  src="../../../assets/img/{{obj.imagepath}}" width="150" height="100"></td> 
+                        <td>
+                            <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#delete" (click)="DeleteDialog(obj.id)"> delete</button> </td>
+                        <td>  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal"  (click)="update(obj.id,obj.servicename,obj.price,obj.imagepath)"> update</button>
+                        </td>
+                    </tr>
+              </tbody>
+         </table>
+</section>
+</main>
+
+
+
+
+
+
+
+ <div class="container">
+               
+            <!-- Update -->
+            <div class="modal fade" id="myModal" role="dialog" style="margin-top: 10%;">
+              <div class="modal-dialog" style="width: 500px;">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header" style="background-color:#FFFC00;">
+                    <img src="../../../assets/img/logosnap2-removebg-preview.png" style="margin-left: 50%; transform: translate(-50%,0);" width="50" height="40">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    
+                  </div>
+                  <div class="modal-body">
+                       
+                      <div class="divbody">
+                        
+                       <input  [(ngModel)]="p_data.id"  type="text"  name="id" title="id" style="display: none;"/>
+                      
+                       <label >Name</label>
+                        <input  class="primary" type="text" [(ngModel)]="p_data.servicename"/>
+                        <label >Price</label>
+                        <input  class="primary" type="number" [(ngModel)]="p_data.price"/>
+                     
+                        
+                        <label >image</label>
+                        <input  id="u" name="u"  type="file" accept="image/*" #file (change)="uploadImage(file.files)" [(ngModel)]="p_data.imagepath" />
+                      </div>
+                      </div>
+                  <div class="modal-footer" >
+                    <button id="update" type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateService()">Update</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"  >Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+             <!-- deleate -->
+             <div class="modal fade" id="delete" role="dialog" style="margin-top: 10%;">
+              <div class="modal-dialog" style="width: 500px;">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header" style="background-color:#FFFC00;">
+                    <img src="../../../assets/img/logosnap2-removebg-preview.png" style="margin-left: 50%; transform: translate(-50%,0);" width="50" height="40">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    
+                  </div>
+                  <div class="modal-body">
+                       
+                      <div class="divbody">
+    
+                        <h2>Are You Sure uyou want to delete this item?</h2>
+
+                      </div>
+                      </div>
+                      
+                  <div class="modal-footer" >
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="DeleteSeve(deleteid)" >Yes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"  >No</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button mat-dialog-close="yes">Yes</button>
+            <button mat-dialog-close="no">No</button>
+        
+     </div> 
+
+
+

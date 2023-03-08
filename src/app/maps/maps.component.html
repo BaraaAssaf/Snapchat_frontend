@@ -1,0 +1,11 @@
+<p>maps works!</p>
+<google-map height="400px"
+            width="750px"
+            [center]="center"
+            [zoom]="zoom" >
+          <p *ngFor="let obj of position;index as i">
+            <map-marker [position]="position[i]" [title]="title.text"  [label]="label" [icon]="icon[0]"></map-marker>
+        </p>
+</google-map>
+
+

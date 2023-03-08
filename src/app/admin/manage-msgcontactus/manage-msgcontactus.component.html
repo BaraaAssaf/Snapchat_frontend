@@ -1,0 +1,50 @@
+<app-sidebaradmin></app-sidebaradmin>
+<main id="main" class="main">
+  <div class="pagetitle" style="margin-top: 50px; " >
+    <h1>Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Message Contact Us</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+<section class="section dashboard">
+
+    <table class="table table-bordered" style="margin-top: 50px;">
+        <thead style="background-color: #FFFC00;">
+          <tr>
+            <th class="col-md-3 col-xs-3">Name</th>
+            <th class="col-md-3 col-xs-3">Email</th>
+            <th class="col-md-3 col-xs-3">Subject</th>
+            <th class="col-md-3 col-xs-3">Message</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr *ngFor="let obj of admin.msgcontactus">
+          
+        <td> {{obj.name}} </td>
+   
+        <td>{{obj.email}}</td>
+  
+        <td>{{obj.subject}}</td>
+
+        <td>{{obj.message}}</td>
+  
+          </tr>
+        </tbody>
+      </table> 
+</section>
+</main>
+
+
+
+
+   
+        
+
+
+    
+
+

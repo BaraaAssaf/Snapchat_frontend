@@ -1,0 +1,108 @@
+
+<div class="container" id="container" style="position: relative; top:50%; transform:translate(0,-50%)">
+	
+	<div class="form-container sign-in-container">
+		<form action="#" class="formc" [formGroup]="registerForm">
+			<h1>Sign up</h1>
+		
+<mat-form-field class="mat" style="width: 100%;" >
+    <input style="margin: 0;"  formControlName="firstname" type="text"  name="firstname" title="firstname" placeholder="first name" />	
+    <mat-error *ngIf="registerForm.controls['firstname'].hasError('required')">
+		first name is <strong>required</strong>
+	</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="mat" style="width: 100%;" >
+    <input style="margin: 0;"  formControlName="lastname" type="text"  name="lastname" title="lastname" placeholder="last name" />	
+    <p *ngIf="registerForm.controls['lastname'].hasError('required')">
+		last name is <strong>required</strong>
+    </p>
+  </mat-form-field>
+
+  <mat-form-field class="mat" style="width: 100%;" >
+    <input style="margin: 0;"  formControlName="address" type="text"  name="address" title="address" placeholder="address" />	
+    <p *ngIf="registerForm.controls['address'].hasError('required')">
+		address is <strong>required</strong>
+    </p>
+  </mat-form-field>
+
+  <mat-form-field class="mat" style="width: 100%;" >
+    <input style="margin: 0;"  formControlName="phone" type="text"  name="phone" title="phone" placeholder="phone number" />	
+    <p *ngIf="registerForm.controls['phone'].hasError('minlength') && !registerForm.controls['phone'].hasError('required')">
+		min length must be 10
+    </p>
+	<p *ngIf="registerForm.controls['phone'].hasError('required')">
+		phone is <strong>required</strong>
+    </p>
+  </mat-form-field>
+
+  
+    <input style="margin: 0; padding: 10px 15px 25px;"class="inputfile" #file formControlName="imagepath" type="file" accept="jpg" name="imagepath" title="imagepath"  (change)="uploadimage(file.files)" />	
+      
+	<!-- <p *ngIf="registerForm.controls['imagepath'].hasError('required')">
+		image is <strong>required</strong>
+    </p> -->
+  
+
+  <mat-form-field class="mat" style="width: 100%;" >
+    <input style="margin: 0;" formControlName="dateofbirth" type="date"  name="dateofbirth" title="dateofbirth" placeholder="date" />	
+
+	<!-- <p *ngIf="registerForm.controls['dateofbirth'].hasError('required')">
+		date is <strong>required</strong>
+    </p> -->
+  </mat-form-field>
+
+
+
+<mat-form-field class="mat" style="width: 100%;" >
+    <input style="margin: 0;"  formControlName="email" type="email"  name="email" title="email" placeholder="Email" />	
+    <p *ngIf="registerForm.controls['email'].hasError('email') && !registerForm.controls['email'].hasError('required')">
+      Please enter a valid email address
+    </p>
+    <p *ngIf="registerForm.controls['email'].hasError('required')">
+      Email is <strong>required</strong>
+
+    </p>
+  </mat-form-field>
+
+  <mat-form-field class="mat" style="width: 100%;" >
+    <input style="margin: 0;" formControlName="Username" type="text"  name="Username" title="Username" placeholder="user name" />	
+
+	<p *ngIf="registerForm.controls['Username'].hasError('required')">
+		user name is <strong>required</strong>
+    </p>
+  </mat-form-field>
+
+  <mat-form-field class="mat" style="width: 100%;" >
+    <input style="margin: 0;" formControlName="Password" type="text"  name="Password" title="Password" placeholder="Password" />	
+
+	<p *ngIf="registerForm.controls['Password'].hasError('minlength') && !registerForm.controls['Password'].hasError('required')">
+		password must be length 8
+	
+    </p>
+
+	<p *ngIf="registerForm.controls['Password'].hasError('required')">
+		
+		password is <strong>required</strong>
+    </p>
+	
+  </mat-form-field>
+
+
+
+			
+			<button (click)="register()">Sign Up</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				
+			</div>
+			<div class="overlay-panel overlay-right">
+				<img src="../../../assets/img1/logosnap2-removebg-preview.png" width="150px;" height="120px" style="margin-bottom: 15px;">
+				<a href="security/login"><button class="ghost" id="signUp">Sign In</button></a>
+			</div>
+		</div>
+	</div>
+</div>

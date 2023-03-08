@@ -1,0 +1,23 @@
+.divbody{
+    width: 80%;
+    margin-left: 50%;
+    transform: translate(-40%,0);
+}
+input{
+
+     background-color:transparent;
+     border:2px solid black;
+     
+     padding: 4px;
+     display: block;
+     width: 80%;
+     
+     border-radius: 5px;
+
+}
+
+
+label{
+  color: black;
+  margin-top: 5px;
+}

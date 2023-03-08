@@ -1,0 +1,57 @@
+
+<div class="container" id="container" style="position: relative; top:50%; transform:translate(0,-50%)">
+	
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Sign in</h1>
+			<mat-form-field class="mat" style="width: 100%;" >
+				<input style="margin: 0;" type="email" [formControl]="email" name="email" title="email" placeholder="Email" />	
+			
+				<p *ngIf="email.hasError('required')">
+				  Email is <strong>required</strong>
+	  
+				</p>
+			  </mat-form-field>
+	  
+			  <mat-form-field class="mat" style="width: 100%;" >
+				<!-- <input id="password"  [formControl]="password" type="password" name="password" title="password" placeholder="Password" > -->
+				<input style="margin: 0;" type="password" [formControl]="password" name="password" title="password" placeholder="Password" />
+				<p *ngIf="password.hasError('minlength') && !password.hasError('required')">
+				  Please enter a valid password
+				</p>
+				
+				<p *ngIf="password.hasError('required')">
+				  password is <strong>required</strong>		
+				</p>
+
+				<span *ngIf="auth.vaidate == 1"  style="color:red;">
+				    Email or password is <strong>Incorrect</strong>		
+				</span>
+			</mat-form-field>
+				
+				<div style="  width: 100%; " >
+					<input value="check" title="remember" [formControl]="remember" name="remember" type="checkbox" style="display: inline-block; position: absolute; right: 35%;" id="check">
+					<label for="check" style="display: inline; float:left; margin-left: 20px;" >remember me</label>
+				</div> 
+				
+				<!-- <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe">Remember me</label> -->
+			<a href="#">Forgot your password?</a>
+			<button (click)="Login()"  >Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				
+			</div>
+			<div class="overlay-panel overlay-right">
+				
+				<img src="../../../assets/img1/logosnap2-removebg-preview.png" width="150px;" height="120px" style="margin-bottom: 15px;">
+				<a href="security/register">
+					<button class="ghost" id="signUp">Sign Up</button></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+

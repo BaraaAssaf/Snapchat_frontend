@@ -1,0 +1,79 @@
+<app-sidebaradmin></app-sidebaradmin>
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Dashboard</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Home</li>
+          <li class="breadcrumb-item active">Story</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+  <section class="section dashboard">
+    <div class="row">
+        <div class="card-body col-4" *ngFor="let obj of admin.allStory" >
+        
+ 
+ 
+         
+            <div class="media" id="{{obj.id}}media">
+                <div class="media-body"  style=" width:100%; height:350px; 
+                 position:relative ; z-index: 0;" >
+        
+           <div id="progressContainer" style="position:absolute; left: 50%;transform: translate(-50%,0); z-index: 2 ;">
+            <div id="{{obj.id}}progress" class="progress"></div>
+        </div>
+        
+            {{changeext(obj.path)}}
+              <img *ngIf="this.ext == 'jpg' || this.ext == 'jpeg' || this.ext == 'png' || this.ext == 'eps' || this.ext == 'com' " 
+               src="../../../assets/img/{{obj.path}}" alt="img"
+                style="position:absolute; left: 0; top:0; width: 100%; height: 100%; z-index: 1;">
+        
+            <video *ngIf="this.ext == 'mp4' || this.ext == 'webm' || this.ext == 'ogg'" 
+               autoplay  id="video{{obj.id}}"
+             style="position:absolute; left: 0; top:0; width: 100%; height: 100%; z-index: 1;">
+        
+               <source src="../../../assets/img/{{obj.path}}"
+                       type="video/webm">
+        
+                 <source src="../../../assets/img/{{obj.path}}"
+                             type="video/mp4">
+                  Sorry, your browser doesn't support embedded videos.
+            </video>
+        
+             
+                
+                 <div id="{{obj.id}}div" style="position:absolute;width:100%;height:100% ;left:0;top:0; background-color: rgba(0, 0, 0, .88);z-index: 1;">
+                <div *ngFor="let obj1 of user.alluser">
+                    <img *ngIf="obj1.id == obj.userId" id="{{obj.id}}img"  src="../../../assets/img/{{obj1.imagepath}}" alt="img" width="100px" height="100px" 
+                    class="rounded-circle mr-3" style="position:absolute; left: 50%; top: 50%; transform:translate(-50%,-50%);" (click)="changeshowstory(obj.id)"> 
+                    <h3 id="{{obj.id}}h3" *ngIf="obj1.id == obj.userId" style="color:white; position:absolute; left: 50%; top: 70%; transform:translate(-50%,-70%)" (click)="changeshowstory(obj.id)"> {{obj1.firstname}} {{obj1.lastname}}</h3>
+                </div>
+            </div>
+           </div>   
+        </div>
+        
+
+        <div *ngIf="obj.isBlock == 0">
+            <button class="btn btn-info"style=" width:100%; margin-top:10px;" (click)="Block(obj.id)">
+                Block
+            </button>
+        </div>
+             
+                <div *ngIf="obj.isBlock == 1">
+                    <button class="btn btn-info"style=" width:100%; margin-top:10px;" (click)="deleteBlock(obj.id)">
+                        Blocked
+                    </button>
+                </div>
+
+        </div>    
+    </div>
+
+
+
+
+ </section>
+  </main>

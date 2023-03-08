@@ -1,0 +1,140 @@
+
+
+  <!-- Favicons -->
+  
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="../../../assets/img1/logosnap2-removebg-preview.png" alt="">
+        <span class="d-none d-lg-block" style="color: black;">SnapChat</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+        <div class="dropdown" style="margin-right:100px;">
+            <!-- <div  calss="dropdown-toggle" data-bs-toggle="dropdown">show</div> -->
+            <button type="button" class="btn  dropdown-toggle" style="border: none;" data-bs-toggle="dropdown">
+                <img src="../../../assets/img/{{this.user.User[0].imagepath}}" alt="Avatar Logo" style="width:40px; height: 40px;" class="rounded-circle">
+                 {{token.unique_name}} 
+              </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/admin/profile">Edit Profile</a></li>
+              <li (click)="logout()"><a class="dropdown-item" >Logout</a></li>       
+            </ul>
+          </div>
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar" style="margin-top: 20px;">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " routerLink="/admin/dashboard">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+
+      <li class="nav-item">
+     
+        <a class="nav-link collapsed" routerLink="/admin/chart">
+          <i class="bi bi-bar-chart-line"></i>
+          <span>Chart</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+     
+        <a class="nav-link collapsed" routerLink="/admin/service">
+          <i class="bi bi-receipt"></i>
+          <span>Manage Service</span>
+        </a>
+      </li>
+
+    <li class="nav-item">
+     
+        <a class="nav-link collapsed" routerLink="/admin/totalsales">
+          <i class="bi bi-cash-coin"></i>
+          <span>Total Sales</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" routerLink="/admin/managehome">
+            <i class="bi bi-house"></i>
+          <span>Manage Home</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" routerLink="/admin/About">
+          <i class="bi bi-info-circle"></i>
+          
+          <span>Manage Aboutus</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" routerLink="/admin/Testimonial">
+           <i class="bi bi-chat-square-dots"></i>
+          <span>Manage Testimonials</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" routerLink="/admin/managecontact">
+          <i class="bi bi-question-circle"></i>
+          <span>Manage ContactUs</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" routerLink="/admin/managemsgcontact">
+          <i class="bi bi-envelope"></i>
+          <span>ContactUs Messages</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" routerLink="/admin/report">
+            <i class="bi bi-exclamation-triangle"></i>
+          <span>Report</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" routerLink="/admin/allstory">
+            <i class="bi bi-card-list"></i>
+          <span>Stories</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" routerLink="/admin/top10">
+            <i class="bi bi-card-list"></i>
+          <span>Top 10 Stories</span>
+        </a>
+      </li>
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+ 
+
+

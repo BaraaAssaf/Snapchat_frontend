@@ -1,0 +1,31 @@
+<div class="container">
+            <!-- Create -->
+            <div class="modal fade" id="create" role="dialog" style="margin-top: 10%;">
+                <div class="modal-dialog" style="width: 500px;">
+                
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header" style="background-color:#FFFC00;">
+                      <img src="../../../assets/img/logosnap2-removebg-preview.png" style="margin-left: 50%; transform: translate(-50%,0);" width="50" height="40">
+                      <button type="button" class="close" data-dismiss="modal" routerLink="/admin/service">&times;</button>                
+                    </div>
+                    <div class="modal-body">                
+                        <div class="divbody">
+                          <label >Name</label>
+                          <input  class="primary" type="text" [(ngModel)]="p_datac.servicename"/>
+  
+                          <label >Price</label>
+                          <input  class="primary" type="number" [(ngModel)]="p_datac.price"/>
+                       
+                          <label >Image</label>
+                          <input  id="c" name="c" type="file" accept="image/*" #file (change)="uploadmage(file.files)" [(ngModel)]="p_datac.imagepath" >
+                        </div>
+                        </div>
+                    <div class="modal-footer" >
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="create()" >ADD</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal"  routerLink="/admin/service" >Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+     </div>

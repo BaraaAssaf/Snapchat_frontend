@@ -1,0 +1,72 @@
+   <app-sidebaradmin></app-sidebaradmin>
+   <main id="main" class="main">
+     <div class="pagetitle" style="margin-top: 50px; " >
+       <h1>Dashboard</h1>
+       <nav>
+         <ol class="breadcrumb">
+           <li class="breadcrumb-item active">Manage About</li>
+         </ol>
+       </nav>
+     </div><!-- End Page Title -->
+   <section class="section dashboard">
+   
+       <table class="table table-bordered" style="margin-top: 50px;">
+           <thead style="background-color: #FFFC00;">
+                  <tr>
+                    <th class="col-md-3 col-xs-3">ID#</th>
+                    <th class="col-md-3 col-xs-3">Name</th>
+                    <th class="col-md-3 col-xs-3">Text</th>
+                    <th class="col-md-3 col-xs-3"> Image</th>
+                    <th class="col-md-3 col-xs-3"></th>               
+                  </tr>
+                </thead>
+                <tbody>            
+                    <tr *ngFor="let obj of admin.About">
+                      <td>{{obj.id}}</td>
+                      <td>{{obj.name}}</td>
+                      <td>{{obj.text}}</td>                     
+                      <td><img  src="../../../assets/img/{{obj.imagePath}}" width="150" height="100"></td> 
+                    <td>  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal"  (click)="openDialog(obj.id , obj.imagePath , obj.text , obj.name)">Update</button></td>
+                  </tr>
+                </tbody>
+              </table> 
+              <br>
+        
+        
+              <div class="container">
+               
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog" style="margin-top: 10%;">
+                  <div class="modal-dialog" style="width: 500px;">
+                  
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header" style="background-color:#FFFC00;">
+                        <img src="../../../assets/img/logosnap2-removebg-preview.png" style="margin-left: 50%; transform: translate(-50%,0);" width="50" height="40">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        
+                      </div>
+                      <div class="modal-body">
+                           
+                          <div class="divbody">
+                           <input  [(ngModel)]="p_data.id"  type="text"  name="id" title="id" style="display: none;"/>
+                          
+                           <label >Text</label>
+                            <input  class="primary" type="text" [(ngModel)]="p_data.text"/>
+                        
+                          
+                            <label >image</label>
+                            <input  type="file" accept="image/*" #file (change)="uploadImage(file.files)" [(ngModel)]="p_data.imagePath" >
+                          </div>
+                          </div>
+                      <div class="modal-footer" >
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="update()">Update</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"  >Close</button>
+                      </div>
+                    </div>
+                 
+                  </div>
+                </div>
+              </div>  
+        </section>
+        </main>

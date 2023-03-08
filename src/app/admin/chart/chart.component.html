@@ -1,0 +1,27 @@
+<app-sidebaradmin></app-sidebaradmin>
+
+<main id="main" class="main">
+    <div class="allchart">
+<div  style="display: inline-block;" class="chart1">
+     <p>Snapchat users by city</p>
+    <canvas id="canvas"  ></canvas></div>
+<div style="display: inline-block; width: 300px; " class="chart2">
+    <p>snapchat users by age</p>
+    <canvas id="doughnut"></canvas></div>
+</div>
+</main>
+
+<div *ngFor="let item of this.user.alluser" style="display: none;">
+   
+        {{changevalue(item.address,this.user.alluser.length)}}
+        
+        {{item.address}}
+    
+</div>
+<div *ngFor="let obj of this.user.alluser" style="margin-top: 500px; display: none;">
+   
+    {{calculatedate(obj.dateofbirth,this.user.alluser.length)}}
+  
+  <p>{{obj.dateofbirth}}</p>
+</div>
+

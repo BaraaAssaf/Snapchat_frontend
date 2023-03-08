@@ -1,0 +1,74 @@
+<app-sidebaradmin></app-sidebaradmin>
+<main id="main" class="main">
+  <table class="table table-bordered" style="margin-top: 25%; transform: translate(0,-50%);">
+      <thead style="background-color: #FFFC00;">
+        <tr>
+          <th class="col-md-3 col-xs-3">Address</th>
+          <th class="col-md-3 col-xs-3">Email</th>
+          <th class="col-md-3 col-xs-3">Phone</th>
+          
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let obj of admin.contactus">
+          
+      
+  
+      <td>
+            {{obj.text1}} </td>
+ 
+      <td>{{obj.text2}}</td>
+
+      <td>{{obj.text3}}</td>
+
+     
+
+  
+              
+          <td>      <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal"  (click)="getcontactprevdata(obj.id,obj.text1,obj.text2,obj.text3)">Update</button></td>
+        </tr>
+      </tbody>
+    </table> 
+<br>
+    <div class="container">
+     
+      
+      <div class="modal fade" id="myModal" role="dialog" style="margin-top: 10%;">
+        <div class="modal-dialog" style="width: 500px;">
+        
+          
+          <div class="modal-content">
+            <div class="modal-header" style="background-color:#FFFC00;">
+              <img src="../../../assets/img/logosnap2-removebg-preview.png" style="margin-left: 50%; transform: translate(-50%,0);" width="50" height="40">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              
+            </div>
+            <div class="modal-body">
+                 
+                <div class="divbody">
+                 <input  [(ngModel)]="p1_data.id"  type="text"  name="id" title="id" style="display: none;"/>
+                
+                 <label >Address</label>
+                  <input  id="t1" class="primary" type="text" [(ngModel)]="p1_data.text1"  name="text1" title="text1" />
+              
+              
+                  <label >Email</label>
+                  <input type="text" [(ngModel)]="p1_data.text2" name="text2" title="text2" />
+               
+                  <label >Phone</label>
+                  <input   type="text" [(ngModel)]="p1_data.text3" name="text3" title="text3" />
+    
+                  
+                </div>
+                </div>
+            <div class="modal-footer" >
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updatecontactus()">Update</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal"  >Close</button>
+            </div>
+          </div>
+       
+        </div>
+      </div>
+    </div> 
+  </main>

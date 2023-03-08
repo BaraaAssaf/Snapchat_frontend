@@ -1,0 +1,74 @@
+ <!-----------------------------------Banner/img Starts-------------------->
+<app-navbaruser></app-navbaruser>
+
+    <div class="banner" style="height: 90%; margin-top: -50px;">
+        <div class="banner-title d-flex flex-column justify-content-center align-items-center">
+            <img src="../../../assets/img/{{this.user.otheruser[0].imagepath}}" alt="img" class="rounded-circle" width="150px" height="150px">
+            <h3 class="text-light" style="margin-top: 50px;">{{this.user.otheruser[0].firstname}} {{this.user.otheruser[0].lastname}}</h3>
+           
+ </div>
+
+
+        <div class="banner-end d-flex justify-content-center align-items-end" style="margin-top: -100px;">
+            <ul class="nav text-light">
+                <div *ngFor="let obj of user.Friend">
+                    <li *ngIf="this.user.otheruser[0].id == obj.id &&  obj.status == 0" class="nav-item nav-link active">     
+                        <a  class="btn btn-outline-info  btn-sm" ><i class="fas fa-user-friends" ></i>Requested</a>  
+                       {{incrementcase()}}            
+                    </li>
+
+                    <li *ngIf="this.user.otheruser[0].id == obj.id  && obj.status == 1" class="nav-item nav-link active">     
+                        <a class="btn btn-outline-info  btn-sm"  (click)="unfollow(token.userid, this.user.otheruser[0].id)"><i class="fas fa-user-friends"></i>UnFollow</a>  
+                          {{incrementcase() }}           
+                    </li>         
+                    
+                    
+             
+            </div>
+ 
+            <li *ngIf="this.case == 0" class="nav-item nav-link active">     
+                <a  class="btn btn-outline-info  btn-sm" (click)="createfollow(token.userid,this.user.otheruser[0].id)"><i class="fas fa-user-friends" ></i>Follow </a>             
+            </li>
+            
+                <li class="nav-item nav-link">
+                    <a  class="btn btn-outline-info  btn-sm" (click)="chat(this.user.otheruser[0].id)"><i class="bi bi-chat-text-fill"></i></a>
+                </li>
+                <li class="nav-item nav-link">
+                    <a  class="btn btn-outline-info  btn-sm"   data-toggle="modal" data-target="#Report"><i class="bi bi-chat-text-fill"></i>Report</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Report -->
+  <!-- Modal -->
+  <div class="modal fade" id="Report" role="dialog" style="margin-top: 10%;">
+    <div class="modal-dialog" style="width: 500px;">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#FFFC00;">
+          <img src="../../../assets/img/logosnap2-removebg-preview.png" style="margin-left: 50%; transform: translate(-50%,0);" width="50" height="40">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="divbody">
+                
+                         
+                       <label for="text" style="display: block ; margin-left:40px ;">Report</label>
+                        <textarea type="text" id="text" [(ngModel)]="ReportBody.message"  rows="6" cols="50" name="text" title="text" placeholder="text" style="display:inline-block; margin-left:50%; transform:translate(-50%,0) ;" ></textarea>
+                   
+                   
+           <div class="modal-footer" >
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="CreateReport(this.user.otheruser[0].id)" >Submit</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal"  >Close</button>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- Report -->
+
+
